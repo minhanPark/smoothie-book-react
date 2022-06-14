@@ -6,12 +6,10 @@ describe("<App />", () => {
   it("renders component correctly", () => {
     const { container } = render(<App />);
     const linkElement = screen.getByText(/learn react/i);
+    const appLogo = screen.getByAltText("logo");
     expect(linkElement).toBeInTheDocument();
-    expect(container.getElementsByClassName("App-logo")).toHaveLength(1);
-    expect(container.getElementsByClassName("App-logo")[0]).toHaveAttribute(
-      "src",
-      "logo.svg"
-    );
+    expect(appLogo).toBeInTheDocument();
+    expect(appLogo).toHaveAttribute("src", "logo.svg");
     expect(container.getElementsByTagName("p")).toHaveLength(1);
     expect(container.getElementsByTagName("p")[0]).toHaveTextContent(
       "Edit src/App.js and save to reload."
